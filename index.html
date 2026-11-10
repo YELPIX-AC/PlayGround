@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#100d20" />
+  <title>Moonfall — Last Light</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Moonfall action game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Moonfall home"><span class="brand-mark">✦</span> MOONFALL <i>／ LAST LIGHT</i></a>
+      <div class="top-actions"><span class="run-tag"><b></b> NIGHTFALL / 01</span><button class="icon-btn" id="soundBtn" aria-label="Toggle sound">♫</button><button class="icon-btn" id="pauseBtn" aria-label="Pause game">Ⅱ</button></div>
+    </header>
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="hero-card"><div class="portrait"><span>✦</span><div class="portrait-girl">◡</div></div><div class="hero-meta"><div class="hero-name">REI KAGETSU <span>LV <b id="level">01</b></span></div><div class="health-track"><div id="healthFill"></div><small>VITALITY <b id="hpText">100 / 100</b></small></div></div></div>
+      <div class="timer-wrap"><span class="tiny-label">SURVIVE UNTIL DAWN</span><strong id="timer">00:00</strong><div class="wave-line"><i></i><span id="waveText">THE HOLLOWING</span></div></div>
+      <div class="kill-counter"><span class="skull">✦</span><div><b id="kills">000</b><small>SPIRITS PURGED</small></div></div>
+      <div class="xp-wrap"><div class="xp-label"><span>MOONSHARDS</span><b><span id="xp">0</span> / <span id="xpNeed">8</span></b></div><div class="xp-track"><i id="xpFill"></i></div></div>
+    </section>
+    <div class="objective" id="objective"><span class="obj-icon">✧</span><span>Stay alive. Let your blade find the darkness.</span><kbd>WASD</kbd><kbd>SPACE</kbd></div>
+    <div class="toast" id="toast"></div>
+    <section class="screen visible" id="startScreen">
+      <div class="screen-backdrop"></div><div class="title-wrap"><div class="eyebrow"><i></i> A MOONLIT SURVIVAL RPG <i></i></div><h1>MOON<span>FALL</span></h1><div class="subtitle">WHEN THE BELLS RING, THE DEAD REMEMBER.</div><div class="rule"><span>✧</span></div><p class="story">The moon has cracked. The old capital is drowning in shadows.<br>Draw your blade, Rei — dawn is <b>10 minutes away.</b></p><button class="primary-btn" id="startBtn"><span>BEGIN THE HUNT</span><b>↗</b></button><div class="start-controls"><span>⌨ MOVE <b>W A S D</b></span><i></i><span>✦ ATTACK <b>AUTOMATIC</b></span><i></i><span>Ⅱ PAUSE <b>ESC</b></span></div></div>
+      <div class="hero-art"><div class="moon-halo"></div><div class="hero-silhouette"><div class="art-hair"></div><div class="art-face"><i></i></div><div class="art-coat"></div><div class="art-blade"></div></div><div class="art-spark s1">✦</div><div class="art-spark s2">✧</div><div class="art-spark s3">✦</div></div>
+      <div class="version">VER 1.0 <span>◆</span> A NIGHT TO REMEMBER</div>
+    </section>
+    <section class="screen" id="levelScreen"><div class="modal-card level-modal"><div class="modal-eyebrow">A MOMENT BETWEEN HEARTBEATS</div><h2>FATE <em>AWAKENS</em></h2><p class="modal-copy">Choose a boon. The night grows stronger.</p><div id="upgradeChoices" class="upgrade-grid"></div><div class="choose-hint">SELECT A BLESSING TO CONTINUE</div></div></section>
+    <section class="screen" id="pauseScreen"><div class="modal-card pause-modal"><div class="modal-eyebrow">THE NIGHT CAN WAIT</div><h2>PAUSED<span>.</span></h2><p class="modal-copy">Catch your breath, moonblade.</p><button class="primary-btn" id="resumeBtn"><span>RETURN TO THE HUNT</span><b>↗</b></button><div class="pause-foot">WASD TO MOVE <i>·</i> YOUR WEAPON FIGHTS FOR YOU</div></div></section>
+    <section class="screen" id="gameOverScreen"><div class="modal-card end-modal"><div class="modal-eyebrow" id="endEyebrow">THE NIGHT CLAIMS ANOTHER</div><h2 id="endTitle">FALLEN<span>.</span></h2><p class="modal-copy" id="endCopy">The moon remembers your name.</p><div class="run-stats"><div><b id="finalTime">00:00</b><small>TIME SURVIVED</small></div><div><b id="finalKills">0</b><small>SPIRITS PURGED</small></div><div><b id="finalLevel">1</b><small>FINAL LEVEL</small></div></div><button class="primary-btn" id="retryBtn"><span>RISE AGAIN</span><b>↗</b></button></div></section>
+    <div class="touch-controls" id="touchControls"><div class="dpad"><button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div><div class="dash-wrap"><button id="dashBtn">✦<small>DASH</small></button></div></div>
+    <footer><span>✦ <b>MOONFALL</b> <i>／ LAST LIGHT</i></span><span>AN ETERNAL NIGHT <b>✧</b></span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
